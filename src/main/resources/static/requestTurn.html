@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DigitalQueue - Request turn</title>
+    <link rel="stylesheet" type="text/css" href="css/requestTurn.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+
+<body style="background-color: #6c757d" onunload="cancelCurrentTurn()">
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLongTitle">Information that you need to know before you
+                        continue...</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <h4>Hello!</h4>
+                    You have just accessed the module where you will be able to request an turn, but before continuing
+                    you must know the following information. <br>
+                    <br>
+                    Put your name in the first box, so our agents will know who they are going to attend to give you a
+                    personal service. <br>
+                    <br>
+                    The second box is drop down, so you can select the service in which you want to request a turn,
+                    this because there may be a few in the business where you are. <br>
+                    <br>
+                    Finally, you will see a button that will be the final step to request the turn, which, as soon as
+                    you click on it, will show you a warning where the code of the turn you just requested will appear.
+                    <br>
+                    <br>
+
+                    <h5 style="color: red">Warning!</h5>
+
+                    Once the turn has been requested, if you want to go back to the previous page or reload the page
+                    your turn will be cancelled.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form class="center w-50">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="services">Service</label>
+                <select class="form-control" id="services">
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="request()">Request Turn</button>
+        </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/requestTurn.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            $('#myModal').modal('show');
+        });
+    </script>
+
+</body>
+
+</html>

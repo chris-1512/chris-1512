@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/css/bootstrap4-toggle.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .toggle.ios,
+        .toggle-on.ios,
+        .toggle-off.ios {
+            border-radius: 20px;
+        }
+
+        .toggle.ios .toggle-handle {
+            border-radius: 20px;
+        }
+    </style>
+    <style>
+        #loading {
+            display: none;
+        }
+    </style>
+    <title>DigitalQueue</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Digital Queue</a>
+
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/logout">Sign out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class=" container-fluid ">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link ">
+                                <i data-feather="check-square"></i>
+                                Manage Turns
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="card mt-5 w-75 mx-auto">
+                    <div class="card-body">
+                        <h2>Manage Turns</h2>
+                        <div class="row justify-content-around">
+                            <div class="col-sm-3">
+                                <div class="card mt-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">Total Waiting</h5>
+                                        <p id="totalWaiting" class="card-text text-center">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card mt-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">Call Next Turn</h5>
+                                        <center><button type="button" id="nextTurn" class="btn btn-success" ><i class="fas fa-arrow-right"></i></button></center>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card mt-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">Turn Completed</h5>
+                                        <center><button type="button" id="turnCompleted" class="btn btn-info" ><i class="fas fa-check"></i></i></button></center>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card mt-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">Cancel Turn</h5>
+                                        <center><button type="button" id="cancelTurn" class="btn btn-danger" ><i class="fas fa-times"></i></button></center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+    <script src="https://kit.fontawesome.com/817a453e0c.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/manageTurns.js"></script>
+
+</body>
+
+
+</html>

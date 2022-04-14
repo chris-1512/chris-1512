@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .toggle.ios,
+        .toggle-on.ios,
+        .toggle-off.ios {
+            border-radius: 20px;
+        }
+
+        .toggle.ios .toggle-handle {
+            border-radius: 20px;
+        }
+    </style>
+    <style>
+        #loading {
+            display: none;
+        }
+    </style>
+    <title>DigitalQueue</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Digital Queue</a>
+
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/logout">Sign out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class=" container-fluid ">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link " href="dashboard.html">
+                                <i data-feather="home"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="services.html">
+                                <i data-feather="layers"></i>
+                                Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="attentionPoints.html">
+                                <i data-feather="bookmark"></i>
+                                Attention Points
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="users.html">
+                                <i data-feather="users"></i>
+                                Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i data-feather="bar-chart-2"></i>
+                                Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+                <div id="loading">loading...</div>
+
+                <!-- Large modal -->
+                <button type="button" class="btn btn-primary ml-5 mt-5 mb-3" data-toggle="modal"
+                    data-target=".bd-example-modal-lg">Add Attention Point</button>
+
+                <div class="modal fade bd-example-modal-lg" tabdashboard="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New Attention Point</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Code:</label>
+                                        <input type="text" class="form-control" id="recipient-code">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Services:</label>
+                                        <select class="form-control" id="services">
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Users:</label>
+                                        <select class="form-control" id="users">
+                                        </select>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button id="json_post" type="button" class="btn btn-primary" data-dismiss="modal">Send
+                                    message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table id="attentionPointsTable" class="table mt-3 mx-5 w-75 ">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th data-field="code" scope="col">Code</th>
+                            <th data-field="enable" scope="col">Enabled</th>
+                            <th data-field="service" scope="col">Service</th>
+                            <th data-field="employee" scope="col">Employee</th>
+                            <th data-field="delete" scope="col">Delete</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+    <script src="https://kit.fontawesome.com/817a453e0c.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/attentionPoints.js"></script>
+
+</body>
+
+
+</html>
